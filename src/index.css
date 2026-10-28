@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Chakra Petch', sans-serif;
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0A0D12;
+    color: #F8FAFC;
+    font-family: var(--font-sans);
+    touch-action: none;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle CRT / Phosphor monitor texture */
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.18) 50%,
+    rgba(0, 0, 0, 0.18)
+  );
+  background-size: 100% 4px;
+}
+
+.arena-frame-glow {
+  box-shadow:
+    0 0 28px rgba(56, 189, 248, 0.12),
+    inset 0 0 24px rgba(56, 189, 248, 0.08);
+}
+
+.arena-danger-glow {
+  box-shadow:
+    0 0 32px rgba(239, 68, 68, 0.28),
+    inset 0 0 28px rgba(239, 68, 68, 0.18);
+}
+
+.arena-combo-glow {
+  box-shadow:
+    0 0 32px rgba(245, 158, 11, 0.22),
+    inset 0 0 24px rgba(245, 158, 11, 0.12);
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.985);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
